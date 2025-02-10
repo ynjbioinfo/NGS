@@ -1,2 +1,4 @@
-fastq-dump --split-files ERR5743893   # downlaoad the files 
+command - fastq-dump --split-files ERR5743893   # downlaoad the files 
 Download the Reference file from Here i.e. MN908947.fa 
+command - fastqc 
+Refer the FASTA and FASTQC. pdf for the understanding the FASTQ and FASTQC file format.
