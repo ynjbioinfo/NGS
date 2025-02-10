@@ -1,2 +1,2 @@
 fastq-dump --split-files ERR5743893   # downlaoad the files 
-
+Download the Reference file from Here i.e. MN908947.fa 
