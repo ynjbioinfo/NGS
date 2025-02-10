@@ -1,4 +1,34 @@
-command - fastq-dump --split-files ERR5743893   # downlaoad the files 
-Download the Reference file from Here i.e. MN908947.fa 
-command - fastqc 
-Refer the FASTA and FASTQC. pdf for the understanding the FASTQ and FASTQC file format.
+Step 1: Download the SARS-CoV-2 Sample
+wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR574/003/ERR5743893/ERR5743893_1.fastq.gz
+wget -nc ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR574/003/ERR5743893/ERR5743893_2.fastq.gz
+
+Step 2: Install fastqc
+To analyze the quality of FASTQ files, install fastqc (if not already installed):
+sudo apt-get install fastqc
+
+Step 3: Alternative Method – Download Using fastq-dump
+If you prefer to use the Sequence Read Archive (SRA) Toolkit:
+Install sra-tools (if not installed):
+sudo apt-get install sra-toolkit
+Download the sequencing data from SRA:
+fastq-dump --split-files ERR5743893
+This will generate:
+ERR5743893_1.fastq (Read 1)
+ERR5743893_2.fastq (Read 2)
+If you want gzipped FASTQ files, use:
+fastq-dump --gzip --split-files ERR5743893
+
+Step 4: Download the Reference Genome
+Download the reference genome file (MN908947.fa):
+wget https://www.ncbi.nlm.nih.gov/nuccore/MN908947.3?report=fasta -O MN908947.fa
+or Download the repository from here
+
+Step 5: Run Quality Check on FASTQ Files Using fastqc
+After downloading the FASTQ files, run fastqc to check sequence quality:
+fastqc ERR5743893_1.fastq.gz  
+fastqc ERR5743893_2.fastq.gz  
+
+Step 6: Understand the FASTQ and FASTQC Reports
+FASTQ Format: Contains raw sequencing reads with quality scores.
+FASTQC Report: Provides a graphical representation of sequence quality.
+📌 Refer to FASTA_and_FASTQC.pdf for an explanation of these formats.
